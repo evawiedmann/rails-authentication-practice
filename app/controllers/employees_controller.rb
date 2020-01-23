@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+
   def new
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new
@@ -7,6 +8,7 @@ class EmployeesController < ApplicationController
 
   def create
     @division = Division.find(params[:division_id])
+    @employee.user = current_user
     @employee = @division.employees.new(employee_params)
     if @employee.save
       redirect_to division_path(@division)

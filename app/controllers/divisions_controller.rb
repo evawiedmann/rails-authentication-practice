@@ -12,6 +12,7 @@ class DivisionsController < ApplicationController
 
   def create
     @division = Division.new(division_params)
+    @division.user = current_user
     if @division.save
       flash[:notice] = "New Division successfully added!"
       redirect_to divisions_path
