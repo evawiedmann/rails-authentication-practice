@@ -1,8 +1,8 @@
 <h1>Employee: <%= @employee.name %></h1>
 <h2>Division: <%= @division.name %></h2>
 
-<% if current_user && current_user.admin %>
 
+<% if current_user && current_user.admin %>
 <p><%= link_to "Edit employee", edit_division_employee_path(@division, @employee) %></p>
 <p><%= link_to "Delete employee", division_employee_path(@division, @employee),
                         :data => {:confirm => "Are you sure?",
