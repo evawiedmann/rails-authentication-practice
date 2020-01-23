@@ -14,7 +14,7 @@ end
     visit('/')
     click_on("View Current Divisions")
     click_on("Create new division")
-    save_and_open_page
+    # save_and_open_page
     fill_in('Name', :with => 'QC')
     click_on("Create Division")
     expect(page).to have_content('New Division successfully added!')

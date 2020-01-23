@@ -1,19 +1,26 @@
-# require 'rails_helper'
-#
-# describe "the add a album process" do
-#   it "adds a new album" do
-#     visit albums_path
-#     click_link 'Create new album'
-#     fill_in 'Name', :with => 'Giant Steps'
-#     fill_in 'Genre', :with => 'Jazz'
-#     click_on 'Create Album'
-#     expect(page).to have_content 'Album successfully added!'
-#     expect(page).to have_content 'Giant Steps'
-#   end
-#
-#   it "gives an error when no name is entered" do
-#     visit new_album_path
-#     click_on 'Create Album'
-#     expect(page).to have_content "Name can't be blank"
-#   end
-# end
+require 'rails_helper'
+
+describe('Create a employee path', { :type => :feature } ) do
+  before(:each) do
+    visit('/')
+    find_link('Sign up').click
+    fill_in('Email', :with => "abc@gmail.com")
+    fill_in('Password', :with => 'test111')
+    fill_in('Password confirmation', :with => 'test111')
+    click_on('Sign up')
+  end
+
+  it('creates a division and then creates an employee') do
+    visit('/')
+    click_on("View Current Divisions")
+    click_on("Create new division")
+    fill_in('Name', :with => 'Qc')
+    click_on("Create Division")
+    find_link('Qc').click
+    find_link("Add a employee").click
+    save_and_open_page
+    fill_in('Name', :with => 'Elaine')
+    click_on("Create Employee")
+    expect(page).to have_content('Elaine')
+  end
+end
