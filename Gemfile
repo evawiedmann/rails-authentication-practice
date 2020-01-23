@@ -43,6 +43,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
+  gem 'factory_bot_rails'
+  gem 'simplecov', require: false
+    gem 'capybara'
 end
 
 group :development do
@@ -59,7 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test do
+
   gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
-  gem 'simplecov', require: false
+
 end
